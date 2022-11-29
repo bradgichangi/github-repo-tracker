@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 const RepoList = () => {
-
     const [data,setData] = useState([]) 
+    const params = useParams()
+    const {user} = params
 
     useEffect(() => {
 
-        function fetchGit() {
-            fetch('https://api.github.com/users/bradgichangi/repos')
+        function fetchGit(usr) {
+            fetch(`https://api.github.com/users/${usr}/repos`)
                 .then(response => response.json())
                 .then(data => {
                     setData(data)
@@ -15,7 +17,7 @@ const RepoList = () => {
                 })
         }
 
-        fetchGit()
+        fetchGit(user)
 
     },[])
     

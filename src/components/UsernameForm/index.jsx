@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const UsernameForm = ({ username, setUsername }) => {
+const UsernameForm = () => {
 
     const [textInput, setTextInput ] = useState('')
 
@@ -9,12 +9,11 @@ const UsernameForm = ({ username, setUsername }) => {
 
     function handleChange(e) {
         setTextInput(e.target.value)
-        console.log(textInput)
     }
 
     function handleSubmit(e) { 
         e.preventDefault()
-        navigate('/dashboard');
+        navigate(`/${textInput}`);
     }
 
     return (

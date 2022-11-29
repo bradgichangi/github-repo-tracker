@@ -13,7 +13,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SignIn />} />
-      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="/:user" element={<Dashboard />} />
     </Routes>
   )
 }
