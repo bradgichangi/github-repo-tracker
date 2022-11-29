@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link, Outlet } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar, faCircleDot, faCodeFork } from '@fortawesome/free-solid-svg-icons'
 
 const RepoList = ({ data }) => {
     
@@ -10,10 +12,12 @@ const RepoList = ({ data }) => {
                 <div key={i} className='repo'>
                     <p className='repo-name'>{repo.name}</p>
                     <div className='repo-details'>
-                        <p>{`Stargazers: ${repo.stargazers_count}`}</p>
-                        <i className="fa-regular fa-code-fork"></i>
-                        <p>{`Forks: ${repo.forks}`}</p>
-                        <p>{`Issues: ${repo.open_issues}`}</p>
+                        <FontAwesomeIcon icon={faStar} />
+                        {repo.stargazers_count}
+                        <FontAwesomeIcon icon={faCodeFork} />
+                        {repo.forks}
+                        <FontAwesomeIcon icon={faCircleDot} />
+                        {repo.open_issues}
                     </div>
                 </div>)}
         </div>
