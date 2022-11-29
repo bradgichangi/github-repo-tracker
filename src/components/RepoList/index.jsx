@@ -11,6 +11,7 @@ const RepoList = ({ data }) => {
             {data.map((repo, i) =>
                 <div key={i} className='repo'>
                     <p className='repo-name'>{repo.name}</p>
+                    <p className='repo-desc'>{repo.description}</p>
                     <div className='repo-details'>
                         <FontAwesomeIcon icon={faStar} />
                         {repo.stargazers_count}
