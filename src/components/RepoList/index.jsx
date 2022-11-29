@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom"
+import { useParams } from 'react-router-dom'
+import { Link, Outlet } from "react-router-dom";
 
-const RepoList = ({ username }) => {
-
-    let { name } = useParams()
-
-    const [data, setData] = useState([]) 
+const RepoList = () => {
+    const [data,setData] = useState([]) 
+    const params = useParams()
+    const {user} = params
 
     useEffect(() => {
 
-        function fetchGit() {
-            fetch(`https://api.github.com/users/${name}/repos`)
+        function fetchGit(usr) {
+            fetch(`https://api.github.com/users/${usr}/repos`)
                 .then(response => response.json())
                 .then(data => {
                     setData(data)
@@ -18,16 +18,24 @@ const RepoList = ({ username }) => {
                 })
         }
 
-        fetchGit()
+        fetchGit(user)
 
     },[name])
     
 
 
     return (
-        <>
-            {data.map((repo, i) => <div class='repo' key={i}>{ repo.name}</div>)}
-        </>
+        <div className='repo-group'>
+            {data.map((repo, i) =>
+                <div key={i} className='repo'>
+                    <p className='repo-name'>{repo.name}</p>
+                    <div className='repo-details'>
+                        <p>{`Stargazers: ${repo.stargazers_count}`}</p>
+                        <p>{`Forks: ${repo.forks}`}</p>
+                        <p>{`Issues: ${repo.open_issues}`}</p>
+                    </div>
+                </div>)}
+        </div>
     )
  }
 
