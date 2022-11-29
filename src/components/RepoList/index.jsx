@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from "react-router-dom"
 
-const RepoList = () => {
+const RepoList = ({ username }) => {
 
-    const [data,setData] = useState([]) 
+    let { name } = useParams()
+
+    const [data, setData] = useState([]) 
 
     useEffect(() => {
 
         function fetchGit() {
-            fetch('https://api.github.com/users/bradgichangi/repos')
+            fetch(`https://api.github.com/users/${name}/repos`)
                 .then(response => response.json())
                 .then(data => {
                     setData(data)
@@ -17,17 +20,13 @@ const RepoList = () => {
 
         fetchGit()
 
-    },[])
+    },[name])
     
 
 
     return (
         <>
-            { data.length > 0 ?  data.map(repo => {
-                <div className='repo'>
-                    <p>{repo.name}</p>
-                </div>
-            }) : console.log('Data is empty')}
+            {data.map((repo, i) => <div class='repo' key={i}>{ repo.name}</div>)}
         </>
     )
  }

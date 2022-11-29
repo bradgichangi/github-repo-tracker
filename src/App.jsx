@@ -12,8 +12,8 @@ function App() {
   
   return (
     <Routes>
-      <Route path="/" element={<SignIn />} />
-      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="/" element={<SignIn username={username} setUsername={setUsername}  />} />
+      <Route path=":name" element={<Dashboard />} />
     </Routes>
   )
 }

@@ -14,7 +14,8 @@ const UsernameForm = ({ username, setUsername }) => {
 
     function handleSubmit(e) { 
         e.preventDefault()
-        navigate('/dashboard');
+        setUsername(textInput)
+        navigate(username);
     }
 
     return (

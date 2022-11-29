@@ -1,13 +1,13 @@
 import React from "react";
 import { UsernameForm } from "../../components";
 
-const SignIn = () => {
+const SignIn = ({ username, setUsername }) => {
 
 
     return (
         <>
             <h1>GitHub Repo Tracker</h1>
-            <UsernameForm />
+            <UsernameForm username={username} setUsername={setUsername} />
         </>
     )
 }
