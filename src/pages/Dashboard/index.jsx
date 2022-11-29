@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { RepoList, UserInfo } from "../../components";
+import { RepoList, UserInfo, UsernameForm } from "../../components";
 import { useParams } from "react-router-dom"
+import useFetch from "../../customHooks/useFetch";
 
 const Dashboard = () => {
 
@@ -11,29 +12,36 @@ const Dashboard = () => {
     const params = useParams()
     const { user } = params
 
-    useEffect(() => {
+    const { loading, error, api_data } = useFetch(`https://api.github.com/users/${user}/repos`);
 
-        function fetchGit(usr) {
-            fetch(`https://api.github.com/users/${usr}/repos`)
-                .then(response => response.json())
-                .then(data => {
-                    setData(data)
-                    console.log(data)
-                })
-        }
+    console.log(loading)
 
-        fetchGit(user)
+    // useEffect(() => {
 
-    }, [name])
+    //     async function getData() {
+    //         setData(await useFetch(`https://api.github.com/users/${user}/repos`))
+    //     }
+        
+
+    //     getData()
+    // }, [UsernameForm])
+
+    
     
 
     return (
         <>
             <h1>Dashboard</h1>
             
-            <UserInfo data={data[0].owner} />
-            <p>{`Public Repos: ${data.length}`}</p>
-            <RepoList data={data} />
+            <UserInfo data={api_data[0].owner} />
+            <p>{`Public Repos: ${api_data.length}`}</p>
+            <RepoList data={api_data} />
+
+            {/**Make api data state generic (remove owner attribute) */}
+
+            {/* {!loading ? <p>Loading...</p> : <UserInfo data={api_data[0].owner} />}
+            <p>{`Public Repos: ${api_data.length}`}</p>
+            {loading ? <p>Loading...</p> : <RepoList data={api_data} />} */}
         </>
     )
 }
