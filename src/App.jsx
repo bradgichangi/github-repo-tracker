@@ -9,14 +9,7 @@ function App() {
   const [count, setCount] = useState(0)
   const [username, setUsername] = useState('')
 
-  function fetchGit() {
-    fetch('https://api.github.com/users/bradgichangi/repos')
-      .then(response => response.json())
-      .then(data => console.log(data))
-  }
-
-  fetchGit()
-
+  
   return (
     <Routes>
       <Route path="/" element={<SignIn />} />

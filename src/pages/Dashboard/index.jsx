@@ -1,4 +1,5 @@
 import React from "react";
+import { RepoList } from "../../components";
 
 const Dashboard = () => {
 
@@ -6,6 +7,7 @@ const Dashboard = () => {
         <>
             <h1>Dashboard</h1>
             <h2>Public Repos</h2>
+            <RepoList />
         </>
     )
 }
