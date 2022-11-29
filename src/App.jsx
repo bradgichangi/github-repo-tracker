@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import { UsernameForm } from './components'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
+import Dashboard from './pages/Dashboard'
+import { SignIn } from './pages'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,9 +18,10 @@ function App() {
   fetchGit()
 
   return (
-    <>
-    <UsernameForm />
-    </>
+    <Routes>
+      <Route path="/" element={<SignIn />} />
+      <Route path="dashboard" element={<Dashboard />} />
+    </Routes>
   )
 }
 
