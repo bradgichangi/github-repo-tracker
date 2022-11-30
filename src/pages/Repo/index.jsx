@@ -17,9 +17,7 @@ const Repo = () => {
     useEffect(() => {
         api_data &&  setData(api_data.filter(repo_data => repo_data.name == repo)) 
     },[api_data])
-    
-    console.log(data)
-    console.log(repo)
+
 
     function formatDate (raw_date) {
         let date = new Date(raw_date);
@@ -35,7 +33,7 @@ const Repo = () => {
     return (
         <>
         { loading && <p>Loading...</p> }
-        {api_data && data &&
+        {(api_data && data[0]) ?
         <>
         <div className='repo-page'>
 
@@ -58,7 +56,7 @@ const Repo = () => {
             
 
         </div>
-        </>}
+        </>: <p id="error-msg">{`The repository ${repo} doesn't exist`}</p>}
         { error && <p>{error}</p> }
         
         </>
