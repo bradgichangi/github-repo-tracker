@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faGithub} from '@fortawesome/free-brands-svg-icons'
 import {useLocation, NavLink, useParams} from 'react-router-dom'
+import './styles.css'
 const Layout = (props) => {
     const params = useParams()
     const { user } = params
@@ -10,7 +11,7 @@ const Layout = (props) => {
         console.log(user)
         return (
             <>
-                <nav>
+                <nav className='site-nav'>
                     <NavLink to="/">
                         <div className="home-link">
                             <FontAwesomeIcon icon={faGithub}/>
