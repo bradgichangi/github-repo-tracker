@@ -5,10 +5,14 @@ const SignIn = ({ username, setUsername }) => {
 
 
     return (
-        <>
-            <h1>GitHub Repo Tracker</h1>
-            <UsernameForm username={username} setUsername={setUsername} />
-        </>
+        <div id='background'>
+            <div className="username-form">
+                <p>Welcome to the</p>
+                <h1>GitHub Repo Tracker</h1>
+                <UsernameForm username={username} setUsername={setUsername} />
+            </div>
+        </div>
+        
     )
 }
 
