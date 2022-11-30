@@ -20,7 +20,7 @@ const Layout = (props) => {
             <>
                 <nav className='site-nav'>
                 <NavLink className="home-link" id='github-icon' to="/"><FontAwesomeIcon icon={faGithub}/></NavLink>
-                <NavLink className="home-link" to={`/${currentUser}`}>Dashboard</NavLink>
+                <NavLink className="home-link" to={`/${location.pathname.split('/')[1]}`}>Dashboard</NavLink>
                 <NavLink className="home-link" to="/">Switch User</NavLink>  
                 </nav>
                 {props.children}
