@@ -24,7 +24,7 @@ const Dashboard = () => {
     //     getData()
     // }, [UsernameForm])
 
-    
+    if(error) console.log('heyyy')
     
 
     return (
@@ -36,14 +36,7 @@ const Dashboard = () => {
             {api_data && <p>{`Public Repos: ${api_data.length}`}</p>}
             {api_data && <RepoList data={api_data} />}
             { error && <p>{error}</p> }
-            {/**Make api data state generic (remove owner attribute) */}
 
-            
-            
-
-            {/* {!loading ? <p>Loading...</p> : <UserInfo data={api_data[0].owner} />}
-            <p>{`Public Repos: ${api_data.length}`}</p>
-            {loading ? <p>Loading...</p> : <RepoList data={api_data} />} */}
         </>
     )
 }

@@ -68,7 +68,7 @@ body {
   color: white;
   border-radius: 5px;
   background-color: #22262c00;
-
+  border: 1px solid white;
   margin-right: 5px;
   font-size: 15px;
 }
