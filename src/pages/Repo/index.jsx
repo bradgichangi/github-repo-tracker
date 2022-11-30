@@ -56,7 +56,7 @@ const Repo = () => {
             
 
         </div>
-        </>: <p id="error-msg">{`The repository ${repo} doesn't exist`}</p>}
+        </>: <p id="error-msg">{loading ? 'Loading...' : `The repository ${repo} doesn't exist`}</p>}
         { error && <p>{error}</p> }
         
         </>

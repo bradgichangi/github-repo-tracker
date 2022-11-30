@@ -5,10 +5,12 @@ import {useLocation, NavLink, useParams} from 'react-router-dom'
 import './styles.css'
 const Layout = (props) => {
     const params = useParams()
-    const { user } = params
+    const { user, repo } = params
     const location = useLocation()
+    console.log(user)
+    console.log(repo)
+
     const renderLayout = () => {
-        console.log(user)
         return (
             <>
                 <nav className='site-nav'>
