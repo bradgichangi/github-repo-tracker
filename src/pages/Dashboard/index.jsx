@@ -14,15 +14,17 @@ const Dashboard = () => {
         <>
             <h1>Dashboard</h1>
             
-            { loading && <p>Loading...</p> }
+            {/* { loading && <p>Loading...</p> } */}
+            {console.log(loading)}
             {api_data[0] ? 
             <>
                 <UserInfo data={api_data[0].owner} />
                 <p>{`Public Repos: ${api_data.length}`}</p>
                 <RepoList data={api_data} />
-            </> : <p id="error-msg">{`The username ${user} doesn't exist`}</p>}
+            </> : <p id="error-msg">{loading ? 'Loading...' : `The username ${user} doesn't exist`}</p>}
 
             { error && <p>{error}</p> }
+
         </>
     )
 }

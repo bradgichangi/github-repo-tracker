@@ -14,11 +14,11 @@ const useFetch = (url) => {
             try {
                 await fetch(url).then(response => response.json())
                 .then(data => setData(data))
-                .then(setLoading(false))
                 .catch(error => {
                     setError(error)
                     setLoading(false)
                 })
+                setLoading(false)
                 
             } catch (error) {
                 setError(error)
