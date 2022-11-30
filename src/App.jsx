@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Dashboard from './pages/Dashboard'
 import { SignIn, Repo, Unknown } from './pages'
-import Layout from '../Layout'
+import Layout from './Layout'
 
 function App() {
   const [count, setCount] = useState(0)

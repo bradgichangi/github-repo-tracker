@@ -23,7 +23,6 @@ const Dashboard = () => {
             </> : <p id="error-msg">{`The username ${user} doesn't exist`}</p>}
 
             { error && <p>{error}</p> }
-
         </>
     )
 }
