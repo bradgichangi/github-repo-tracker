@@ -18,8 +18,8 @@ const UsernameForm = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" value={textInput} onChange={handleChange} />
-            <input type="submit" value='Login' />
+            <input type="text" placeholder='Enter username...' value={textInput} onChange={handleChange} />
+            <input type="submit" value='Enter' />
         </form>
     )
 

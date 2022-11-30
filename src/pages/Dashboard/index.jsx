@@ -5,9 +5,7 @@ import useFetch from "../../customHooks/useFetch";
 
 const Dashboard = () => {
 
-    const [data, setData] = useState([{
-        owner: {}
-    }]) 
+    const [data, setData] = useState('') 
 
     const params = useParams()
     const { user } = params
@@ -33,11 +31,15 @@ const Dashboard = () => {
         <>
             <h1>Dashboard</h1>
             
-            <UserInfo data={api_data[0].owner} />
-            <p>{`Public Repos: ${api_data.length}`}</p>
-            <RepoList data={api_data} />
-
+            { loading && console.log(loading) }
+            {api_data && <UserInfo data={api_data[0].owner} />}
+            {api_data && <p>{`Public Repos: ${api_data.length}`}</p>}
+            {api_data && <RepoList data={api_data} />}
+            { error && console.log(error) }
             {/**Make api data state generic (remove owner attribute) */}
+
+            
+            
 
             {/* {!loading ? <p>Loading...</p> : <UserInfo data={api_data[0].owner} />}
             <p>{`Public Repos: ${api_data.length}`}</p>

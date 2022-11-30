@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 const useFetch = (url) => {
 
-    const [api_data, setData] = useState([{ owner: {} }])
+    const [api_data, setData] = useState('')
     const [loading,setLoading] = useState(false)
     const [error, setError] = useState('')
 
