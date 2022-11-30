@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { RepoList, UserInfo, UsernameForm } from "../../components";
+import React from "react";
+import { RepoList, UserInfo } from "../../components";
 import { useParams } from "react-router-dom"
 import useFetch from "../../customHooks/useFetch";
 

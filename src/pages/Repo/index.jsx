@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import useFetch from '../../customHooks/useFetch'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faCircleDot, faCodeFork } from '@fortawesome/free-solid-svg-icons'
+
 
 const Repo = () => {
 
-    const navigate = useNavigate()
     const params = useParams()
     const { user, repo } = params
     const [data, setData] = useState('') 

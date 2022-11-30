@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { Link, Outlet } from "react-router-dom";
+import React from 'react'
+import { useNavigate, } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar, faCircleDot, faCodeFork } from '@fortawesome/free-solid-svg-icons'
 

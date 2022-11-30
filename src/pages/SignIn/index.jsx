@@ -1,7 +1,7 @@
 import React from "react";
 import { UsernameForm } from "../../components";
 
-const SignIn = ({ username, setUsername }) => {
+const SignIn = () => {
 
 
     return (
@@ -10,7 +10,7 @@ const SignIn = ({ username, setUsername }) => {
             <div className="username-form">
                 <p>Welcome to the</p>
                 <h1>GitHub Repo Tracker</h1>
-                <UsernameForm username={username} setUsername={setUsername} />
+                <UsernameForm />
             </div>
         </div>
         
