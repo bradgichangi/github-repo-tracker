@@ -20,7 +20,6 @@ const Repo = () => {
     
     console.log(data)
     console.log(repo)
-    // console.log(api_data.filter(repos => repos.name == repo))
 
     function formatDate (raw_date) {
         let date = new Date(raw_date);
@@ -35,7 +34,7 @@ const Repo = () => {
     
     return (
         <>
-        { loading && console.log(loading) }
+        { loading && <p>Loading...</p> }
         {api_data && data &&
         <>
         <div className='repo-page'>
