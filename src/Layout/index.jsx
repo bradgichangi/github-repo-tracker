@@ -19,13 +19,9 @@ const Layout = (props) => {
         return (
             <>
                 <nav className='site-nav'>
-                    <NavLink to="/">
-                        <div className="home-link">
-                            <FontAwesomeIcon icon={faGithub}/>
-                            <span>Switch User</span>
-                        </div>
-                    </NavLink>
-                    <NavLink className="home-link" to={`${currentUser}`}>Dashboard</NavLink>
+                <NavLink className="home-link" id='github-icon' to="/"><FontAwesomeIcon icon={faGithub}/></NavLink>
+                <NavLink className="home-link" to={`/${currentUser}`}>Dashboard</NavLink>
+                <NavLink className="home-link" to="/">Switch User</NavLink>  
                 </nav>
                 {props.children}
             </>
