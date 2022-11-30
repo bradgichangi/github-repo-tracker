@@ -1,14 +1,20 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faGithub} from '@fortawesome/free-brands-svg-icons'
-import {useLocation, NavLink, useParams} from 'react-router-dom'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useLocation, NavLink } from 'react-router-dom'
 import './styles.css'
+
 const Layout = (props) => {
-    const params = useParams()
-    const { user } = params
+    const [currentUser, setCurrentUser] = useState(null)
     const location = useLocation()
+
+    useEffect(() => {
+        if(!currentUser){
+            setCurrentUser(location.pathname)
+        }
+    }, [currentUser, location])
+
     const renderLayout = () => {
-        console.log(user)
         return (
             <>
                 <nav className='site-nav'>
@@ -18,7 +24,7 @@ const Layout = (props) => {
                             <span>Switch User</span>
                         </div>
                     </NavLink>
-                    <NavLink className="home-link" to={`/${user}`}>Dashboard</NavLink>
+                    <NavLink className="home-link" to={`${currentUser}`}>Dashboard</NavLink>
                 </nav>
                 {props.children}
             </>
