@@ -18,6 +18,7 @@ const Layout = (props) => {
         return (
             <>
                 <nav className='site-nav'>
+                <NavLink className="home-link" to={`/${user}`}>Dashboard</NavLink>
                     <NavLink to="/">
                         <div className="home-link">
                             <FontAwesomeIcon icon={faGithub}/>
