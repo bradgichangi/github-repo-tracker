@@ -151,3 +151,7 @@ body {
 .repo-page p {
   font-size: 20px;
 }
+
+#error-msg {
+  font-size: 30px;
+}
