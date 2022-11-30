@@ -8,17 +8,20 @@ const Dashboard = () => {
     const params = useParams()
     const { user } = params
 
-    const { loading, error, api_data } = useFetch(`https://api.github.com/users/${user}/repos`)    
-    
+    const { loading, error, api_data } = useFetch(`https://api.github.com/users/${user}/repos`);
 
     return (
         <>
             <h1>Dashboard</h1>
             
-            { loading && console.log(loading) }
-            {api_data && <UserInfo data={api_data[0].owner} />}
-            {api_data && <p>{`Public Repos: ${api_data.length}`}</p>}
-            {api_data && <RepoList data={api_data} />}
+            { loading && <p>Loading...</p> }
+            {api_data[0] ? 
+            <>
+                <UserInfo data={api_data[0].owner} />
+                <p>{`Public Repos: ${api_data.length}`}</p>
+                <RepoList data={api_data} />
+            </> : <p id="error-msg">{`The username ${user} doesn't exist`}</p>}
+
             { error && <p>{error}</p> }
         </>
     )
