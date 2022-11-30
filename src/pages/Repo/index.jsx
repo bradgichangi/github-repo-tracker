@@ -13,7 +13,13 @@ const Repo = () => {
     
 
     const { loading, error, api_data } = useFetch(`https://api.github.com/users/${user}/repos`);
-    console.log(user)
+
+    useEffect(() => {
+        api_data &&  setData(api_data.filter(repo_data => repo_data.name == repo)) 
+    },[api_data])
+    
+    console.log(data)
+    console.log(repo)
     // console.log(api_data.filter(repos => repos.name == repo))
 
     function formatDate (raw_date) {
@@ -30,33 +36,32 @@ const Repo = () => {
     return (
         <>
         { loading && console.log(loading) }
-        {api_data && 
+        {api_data && data &&
         <>
         <div className='repo-page'>
 
-            <h1 onClick={() =>  window.location.href = api_data[0].html_url}>{`${user}/${api_data[0].name}`}</h1>
+            <h1 onClick={() =>  window.location.href = data[0].html_url}>{`${user}/${data[0].name}`}</h1>
 
             <div>
-                <p>{`Created: ${formatDate(api_data[0].created_at)}`}</p>
+                <p>{`Created: ${formatDate(data[0].created_at)}`}</p>
 
-                <p>{`Last Updated: ${formatDate(api_data[0].updated_at)}`}</p>
+                <p>{`Last Updated: ${formatDate(data[0].updated_at)}`}</p>
 
-                <p>{`Stargazers: ${api_data[0].stargazers_count}`}</p>
+                <p>{`Stargazers: ${data[0].stargazers_count}`}</p>
 
-                <p>{`Forks: ${api_data[0].forks}`}</p>
+                <p>{`Forks: ${data[0].forks}`}</p>
                     
-                <p>{`Issues: ${api_data[0].open_issues}`}</p>
+                <p>{`Issues: ${data[0].open_issues}`}</p>
 
-                <p>{`Watchers: ${api_data[0].watchers_count}`}</p>
+                <p>{`Watchers: ${data[0].watchers_count}`}</p>
             </div>
 
             
 
         </div>
         </>}
+        { error && <p>{error}</p> }
         
-        
-        {/* {api_data.filter(repo => repo.name == repo_name)} */}
         </>
         
     )

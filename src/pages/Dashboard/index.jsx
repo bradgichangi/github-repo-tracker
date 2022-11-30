@@ -35,7 +35,7 @@ const Dashboard = () => {
             {api_data && <UserInfo data={api_data[0].owner} />}
             {api_data && <p>{`Public Repos: ${api_data.length}`}</p>}
             {api_data && <RepoList data={api_data} />}
-            { error && console.log(error) }
+            { error && <p>{error}</p> }
             {/**Make api data state generic (remove owner attribute) */}
 
             
