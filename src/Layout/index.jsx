@@ -1,14 +1,18 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faGithub} from '@fortawesome/free-brands-svg-icons'
-import {useLocation, NavLink, useParams} from 'react-router-dom'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { useLocation, NavLink } from 'react-router-dom'
 import './styles.css'
+
 const Layout = (props) => {
-    const params = useParams()
-    const { user, repo } = params
+    const [currentUser, setCurrentUser] = useState(null)
     const location = useLocation()
-    console.log(user)
-    console.log(repo)
+
+    useEffect(() => {
+        if(!currentUser){
+            setCurrentUser(location.pathname)
+        }
+    }, [currentUser, location])
 
     const renderLayout = () => {
         return (
