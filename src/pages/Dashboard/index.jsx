@@ -14,8 +14,6 @@ const Dashboard = () => {
         <>
             <h1>Dashboard</h1>
             
-            {/* { loading && <p>Loading...</p> } */}
-            {console.log(loading)}
             {api_data[0] ? 
             <>
                 <UserInfo data={api_data[0].owner} />

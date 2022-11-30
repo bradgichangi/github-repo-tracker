@@ -35,7 +35,7 @@ const Repo = () => {
         <>
         <div className='repo-page'>
 
-            <h1 onClick={() =>  window.location.href = data[0].html_url}>{`${user}/${data[0].name}`}</h1>
+            <h1 onClick={() =>  window.open(data[0].html_url,"_blank") }>{`${user}/${data[0].name}`}</h1>
 
             <div>
                 <p>{`Created: ${formatDate(data[0].created_at)}`}</p>
