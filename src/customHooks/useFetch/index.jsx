@@ -11,16 +11,17 @@ const useFetch = (url) => {
         setLoading(true)
 
         const fetchData = async () => {
-            try { 
-                const response = await fetch(url)
-                const data = await response.json()
-
-                setData(data)
-                setLoading(false)
-
-            }
-            catch (err) {
-                setError(err)
+            try {
+                await fetch(url).then(response => response.json())
+                .then(data => setData(data))
+                .then(setLoading(false))
+                .catch(error => {
+                    setError(error)
+                    setLoading(false)
+                })
+                
+            } catch (error) {
+                setError(error)
                 setLoading(false)
             }
         }

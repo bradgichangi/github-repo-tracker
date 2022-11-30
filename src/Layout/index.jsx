@@ -1,16 +1,23 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faGithub} from '@fortawesome/free-brands-svg-icons'
-import {Link, useLocation} from 'react-router-dom'
+import {useLocation, NavLink, useParams} from 'react-router-dom'
 const Layout = (props) => {
+    const params = useParams()
+    const { user } = params
     const location = useLocation()
     const renderLayout = () => {
+        console.log(user)
         return (
             <>
                 <nav>
-                    <Link to="/">
-                        <FontAwesomeIcon icon={faGithub}/>
-                    </Link>
+                    <NavLink to="/">
+                        <div className="home-link">
+                            <FontAwesomeIcon icon={faGithub}/>
+                            <span>Switch User</span>
+                        </div>
+                    </NavLink>
+                    <NavLink className="home-link" to={`/${user}`}>Dashboard</NavLink>
                 </nav>
                 {props.children}
             </>
