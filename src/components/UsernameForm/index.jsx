@@ -13,7 +13,7 @@ const UsernameForm = () => {
 
     function handleSubmit(e) { 
         e.preventDefault()
-        navigate(`/${textInput}`);
+        navigate(`/${textInput}`, {state: textInput});
     }
 
     return (

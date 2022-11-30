@@ -9,6 +9,7 @@ const Layout = (props) => {
     const location = useLocation()
 
     useEffect(() => {
+        console.log('location', location)
         if(!currentUser){
             setCurrentUser(location.pathname)
         }
